@@ -1,4 +1,4 @@
-# Application skeleton using MEAN2 + TypeScript + gulp
+# App skeleton using MEAN2 + TypeScript + gulp
 
 ## What is MEAN2 ?
 * **M**ongoDB

@@ -1,3 +1,23 @@
 link(rel='stylesheet', href='/css/bootstrap.css')
 //- link(ref='stylesheet', href='/css/font-awesome.css')
 link(rel='stylesheet', href='/css/style.css')
+
+//- script(src="/js/angular2/es6-shim.min.js", type="text/javascript")
+script(src="/js/angular2/system-polyfills.js", type="text/javascript")
+script(src="/js/angular2/angular2-polyfills.js", type="text/javascript")
+script(src="/js/angular2/system.src.js", type="text/javascript")
+script(src="/js/angular2/Rx.js", type="text/javascript")
+script(src="/js/angular2/angular2.dev.js", type="text/javascript")
+script(src="/js/angular2/http.dev.js", type="text/javascript")
+script(src="/js/angular2/router.dev.js", type="text/javascript")
+
+script.
+    System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+    });
+    System.import('/main.js').then(null, console.error.bind(console));

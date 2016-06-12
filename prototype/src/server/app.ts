@@ -11,7 +11,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 
-var config = require('../../src/config.json') // Get application config
+var config = require('../../config.json') // Get application config
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -27,7 +27,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// For resources in public folder
 app.use(express.static(path.join(__dirname, '../../public')));
+// For scripts in client folder
+app.use(express.static(path.join(__dirname, '../client')));
 
 app.use('/', routes);
 app.use('/users', users);
