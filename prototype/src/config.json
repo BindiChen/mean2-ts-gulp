@@ -1,0 +1,18 @@
+{
+    "version"   : "0.0.1",
+    "port"      : 3001,
+    "server"    : "http://127.0.0.1",
+    "basepath"  : "/",
+    "database"  : {
+        "mongo" : {
+            "server" : "127.0.0.1",
+            "port"   : "27017",
+            "database" : "carenote",
+            "collections" : [
+                "users", 
+                "measures",
+                "categories"
+            ]
+        }
+    }
+}

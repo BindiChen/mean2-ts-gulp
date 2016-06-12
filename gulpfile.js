@@ -38,7 +38,6 @@ gulp.task('typescript', function () {
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(appSrc));
 });
-
 gulp.task('watch', function() {
   gulp.watch(tsSrc + '**/*.ts', ['typescript']);
   gulp.watch(appSrc + 'css/*.css', ['css']);
@@ -46,7 +45,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('webserver', function() {
-  nodemon({ script: 'prototype/lib/server/bin/www'
+  nodemon({ script: 'prototype/lib/server/app'
           , ext: 'html js'
           , env: { 'NODE_ENV': 'development' } })
     .on('restart', function () {
