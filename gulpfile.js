@@ -15,7 +15,7 @@ var appSrc = 'prototype/lib/',
 //   gulp.src(appSrc + '**/*.css');
 // });
 
-gulp.task('copylibs', function() {
+gulp.task('copyAngularJS2', function() {
   return gulp
     .src([
       'node_modules/es6-shim/es6-shim.min.js',
@@ -29,6 +29,36 @@ gulp.task('copylibs', function() {
     ])
     .pipe(gulp.dest('prototype/public/js/angular2'));
 });
+
+/*
+* Get Bootstrap and font-awesome css, js and fonts 
+*/
+gulp.task('getCSS', function() {
+  return gulp
+    .src([
+      'node_modules/font-awesome/css/font-awesome.css',
+      'node_modules/bootstrap/dist/css/bootstrap.css'
+    ])
+    .pipe(gulp.dest('prototype/public/css'))
+});
+
+gulp.task('getJS', function() {
+  return gulp
+    .src([
+      'node_modules/bootstrap/dist/js/bootstrap.js'
+    ])
+    .pipe(gulp.dest('prototype/public/js'))
+});
+
+gulp.task('getFonts', function() {
+  return gulp
+    .src([
+      'node_modules/font-awesome/fonts/*',
+      'node_modules/bootstrap/dist/fonts/*'
+    ])
+    .pipe(gulp.dest('prototype/public/fonts'))
+});
+
 
 gulp.task('typescript', function () {
   return gulp
@@ -53,4 +83,4 @@ gulp.task('webserver', function() {
     });
 });
 
-gulp.task('default', ['copylibs', 'typescript', 'watch', 'webserver']);
+gulp.task('default', ['copyAngularJS2', 'typescript', 'getCSS', 'getJS', 'getFonts', 'watch', 'webserver']);

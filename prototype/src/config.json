@@ -7,11 +7,9 @@
         "mongo" : {
             "server" : "127.0.0.1",
             "port"   : "27017",
-            "database" : "carenote",
+            "database" : "mytestdb",
             "collections" : [
-                "users", 
-                "measures",
-                "categories"
+                "users"
             ]
         }
     }

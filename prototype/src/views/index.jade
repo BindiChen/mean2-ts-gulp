@@ -1,5 +1,37 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  nav.navbar.navbar-default.navbar-fixed-top
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#') Project name
+      #navbar.collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li.active
+            a(href='#') Home
+          li
+            a(href='#about') About
+          li
+            a(href='#contact') Contact
+
+  .container
+    .text-center
+      h1= title
+      p Welcome to #{title}
+
+      h3 Bootstrap starter template
+      p
+        | Use this document as a way to quickly start any new project.
+        br
+        |  All you get is this text and a mostly barebones HTML document.
+
+      h3 Font-awesome test
+
+      button.btn.btn-success
+        .fa.fa-plus(style="margin-right: 2px;")
+        span Icon test
