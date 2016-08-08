@@ -17,9 +17,26 @@ var users = require('./routes/users');
 
 var app = express();
 
-// view engine setup
+///////////////////////
+// view engine setup //
+///////////////////////
 app.set('views', path.join(__dirname, '../../src/views'));
 app.set('view engine', 'jade');
+// Get Jade template
+function renderView(dir: String) {
+  Filesystem.readdirSync( __dirname + "/../../src/views/" + dir).forEach( view => {
+    if (Path.extname(view) === '.jade'){
+      app.get("/views/" + dir + Path.basename(view,'.jade') + ".html", function(req, res){
+        res.render(dir + Path.basename(view,'.jade'), jadeVariables);
+      })
+    }
+  });
+};
+// Load Jade template for user and admin
+var dirs = ['applications/user/', 'applications/admin/']
+for (var dir of dirs) {
+  renderView(dir);
+}
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
