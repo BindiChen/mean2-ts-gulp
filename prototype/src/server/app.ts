@@ -91,7 +91,6 @@ var Db = require('./db');
 Db.connect( function (err) {
   console.log('   - MongoDB connected');
 
-
   /**
    * Get port from environment and store in Express.
    */
